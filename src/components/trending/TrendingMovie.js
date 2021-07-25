@@ -1,6 +1,6 @@
 import React, {  useEffect, useState} from 'react';
 import ImageSlider from './ImageSlider';
-import UpNext from './UpNext';
+import UpNext from './Upnext/UpNext';
 
 
 
@@ -19,9 +19,10 @@ function TrendingMovie() {
     
   }, [])
     return (
-      <div className="trending">
+      <div id="trending">
         {trendingCopy ? (
           //prop drilling the trending movies data
+          //the trending state gets changed in image slider and upnext component changes too
           <>
             <ImageSlider sliderData={trending} setTrendingNext={setTrending} sliderDataCopy={trendingCopy.results} />
             <UpNext trendingMovieArray={trending}/>
