@@ -7,9 +7,10 @@ const NextMovies = ({movieData}) => {
     return (
         <div id='upnext-child'>
             <img src={"https://image.tmdb.org/t/p/original" + posterPath} alt="" width='100'/>
+            
             <div id="name-and-data">
                 <h3>{movieTitle}</h3>
-
+                <span>Watch the Trailer</span>
             </div>
         </div>
     );
