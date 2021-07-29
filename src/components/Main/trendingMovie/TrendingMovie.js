@@ -7,7 +7,7 @@ import UpNext from './Upnext/UpNext';
 function TrendingMovie() {
   const [trending, setTrending] = useState();
   const [trendingCopy, setTrendingCopy] = useState();
-  console.log('changed');
+  
   useEffect(() => {
     
     fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=c9f6a8755d74ccaf49688659b04654b7')

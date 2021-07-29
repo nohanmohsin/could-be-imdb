@@ -20,7 +20,7 @@ function App() {
           <Route exact path='/home'>
             <Main></Main>
           </Route>
-          <Route path="/q=:query&f=:filter">
+          <Route path={`/q=:query/f=:filter`}>
             <SearchPage />
           </Route>
         </Switch>

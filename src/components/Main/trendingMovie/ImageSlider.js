@@ -9,10 +9,10 @@ function ImageSlider({ sliderData, setTrendingNext, sliderDataCopy }) {
   useEffect(() => {
 		if(current === length){
       setTrendingNext(sliderDataCopy.slice(0, 3))
+      
     }
     else if(current === 0 || current <= length - 3){
       setTrendingNext(sliderDataCopy.slice(current + 1, current + 4));
-    
     }
     //if this expression is true I will slice the trending movies data with the current state at first and then add another sliced array with the items 
     //that are needed from the start of the trending movies array...for example if current === 17 then first part is [18, 19] then second part is [0]
@@ -21,10 +21,10 @@ function ImageSlider({ sliderData, setTrendingNext, sliderDataCopy }) {
       setTrendingNext(
         sliderDataCopy
           .slice(current + 1)
-          .push(sliderDataCopy.slice( length - current === 1 ? 0 : 0, (length - current) - 1))
+          .concat(length - current === 1 ? sliderDataCopy.slice(0, (length - current) + 1) : sliderDataCopy[0])
       );
     }
-    console.log(current);
+    
   //this is for vscode :p
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [current]);
