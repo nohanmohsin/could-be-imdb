@@ -17,8 +17,8 @@ const SearchPage = () => {
     }, [])
     
     return (
-      <main>
-        {searchRes ? (
+      <main id="search-page">
+        {searchRes && filter !== 'multi' ? (
           searchRes.map(result => <Result result={result} filter={filter}/>)
         ) : (
           <p>Loading...</p>

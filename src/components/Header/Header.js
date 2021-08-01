@@ -17,7 +17,7 @@ const Header = () => {
         <div className="select">
           <select onChange={e => setFilter(e.target.value)} className="filter-search">
             <option value="multi">All</option>
-            <option value="Movies">TItles</option>
+            <option value="movies">Titles</option>
             <option value="tv">TV Episodes</option>
             <option value="person">Celebs</option>
             <option value="company">Companies</option>
