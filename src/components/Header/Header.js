@@ -4,7 +4,8 @@ import  logo  from "./imdb logo.png";
 const Header = () => {
   //the query parameter set by the input filed
   const [query, setQuery] = useState('');
-  //the filter paramter set by the select element
+  //the filter paramter set by the select element 
+  //by default it's set to multi cos that is the default option in the select element
   const [filter, setFilter] = useState('multi');
   const submitBtnRef = useRef(null);
   return (
@@ -13,11 +14,12 @@ const Header = () => {
 
       <div className="menu doesnt-work"></div>
 
-      <form id="search-form">
+      <form id="search-form" onSubmit={() => submitBtnRef.current.click()}>
         <div className="select">
           <select onChange={e => setFilter(e.target.value)} className="filter-search">
+            {/*the reason the values are different than the text in the option element is to add valid filters in the fetch req in searchpage component */}
             <option value="multi">All</option>
-            <option value="movies">Titles</option>
+            <option value="movie">Titles</option>
             <option value="tv">TV Episodes</option>
             <option value="person">Celebs</option>
             <option value="company">Companies</option>
@@ -31,6 +33,7 @@ const Header = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
+        {/*using the filter state here and the query from the input  */}
         <Link to={`/q=${query}/f=${filter}`} ref={submitBtnRef}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

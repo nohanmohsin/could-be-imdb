@@ -89,6 +89,7 @@ function ImageSlider({ sliderData, setTrendingNext, sliderDataCopy }) {
                 width="837"
                 height="541"
                 />
+                {/*this is for the overlay gradient */}
                 <div id="overlay"></div>
               </div>
             )}

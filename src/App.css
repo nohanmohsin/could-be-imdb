@@ -152,5 +152,6 @@ a{
 
 #search-page{
   width: 78.125vw;
-  
+  margin: 8px auto;
+  box-sizing: border-box;
 }
