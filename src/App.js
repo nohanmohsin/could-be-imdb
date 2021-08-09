@@ -1,3 +1,7 @@
+/*PLEASE NOTE: you will see alot of eslint disable comments in the code...
+dont worry about them they are just disabling the warning system check for the next line for vscode */
+
+
 import React from 'react';
 //import { createContext, useEffect, useState } from 'react';
 import './App.css';

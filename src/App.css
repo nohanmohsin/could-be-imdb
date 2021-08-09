@@ -155,3 +155,16 @@ a{
   margin: 8px auto;
   box-sizing: border-box;
 }
+
+.search-heading{
+  color: #F5C518;
+}
+
+.search-res{
+  width: 619px;
+  height: 45px;
+  background-color: #f6f6f5;
+}
+.search-res img{
+  width: 31px;
+}
