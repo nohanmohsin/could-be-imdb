@@ -15,13 +15,14 @@ const Result = ({result, filter}) => {
         case 'movie':
             return (
                 <div className='search-res'>
-                    <img src={"https://image.tmdb.org/t/p/original" + result.poster_path} alt="poster of tv series or movie" width='100'/>
+                    <img src={"https://image.tmdb.org/t/p/original" + result.poster_path} alt="poster of tv series or movie" width='31'/>
                     <span>{result.title}</span>
                 </div>
             );
         case 'tv':
             return (
-                <div className='search-res'>       
+                <div className='search-res'>
+                     <img src={"https://image.tmdb.org/t/p/original" + result.poster_path} alt="poster of tv series or movie" width='31'/>
                     <span>{result.name}</span>
                 </div>
             );
@@ -35,7 +36,7 @@ const Result = ({result, filter}) => {
         case 'company':
             return (
                 <div className='search-res'>
-                    <img src={'https://image.tmdb.org/t/p/original' + result.logo_path} alt={result.name} width='100'/>
+                    <img src={'https://image.tmdb.org/t/p/original' + result.logo_path} alt={result.name} width='31'/>
                     <span>{result.name}</span>
                 </div>
             );
