@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Result = ({result, filter}) => { 
@@ -14,31 +15,61 @@ const Result = ({result, filter}) => {
     switch(result.media_type){
         case 'movie':
             return (
-                <div className='search-res'>
-                    <img src={"https://image.tmdb.org/t/p/original" + result.poster_path} alt="poster of tv series or movie" width='31'/>
-                    <span>{result.title}</span>
-                </div>
+              <div className="search-res">
+                <img
+                  src={
+                    "https://image.tmdb.org/t/p/original" + result.poster_path
+                  }
+                  alt="poster of tv series or movie"
+                  width="31"
+                />
+                <Link to={`/mt=${result.media_type}/id=${result.id}`}>
+                  <span>{result.title}</span>
+                </Link>
+              </div>
             );
         case 'tv':
             return (
-                <div className='search-res'>
-                     <img src={"https://image.tmdb.org/t/p/original" + result.poster_path} alt="poster of tv series or movie" width='31'/>
-                    <span>{result.name}</span>
-                </div>
+              <div className="search-res">
+                <img
+                  src={
+                    "https://image.tmdb.org/t/p/original" + result.poster_path
+                  }
+                  alt="poster of tv series or movie"
+                  width="31"
+                />
+                <Link to={`/mt=${result.media_type}/id=${result.id}`}>
+                  <span>{result.name}</span>
+                </Link>
+              </div>
             );
         case 'person':
             return (
-                <div className='search-res'>
-                    <img src={'https://image.tmdb.org/t/p/original' + result.profile_path} alt={result.name} width='31'/>
-                    <span>{result.name}</span>
-                </div>
+              <div className="search-res">
+                <img
+                  src={
+                    "https://image.tmdb.org/t/p/original" + result.profile_path
+                  }
+                  alt={result.name}
+                  width="31"
+                />
+                <Link to={`/mt=${result.media_type}/id=${result.id}`}>
+                  <span>{result.name}</span>
+                </Link>
+              </div>
             );
         case 'company':
             return (
-                <div className='search-res'>
-                    <img src={'https://image.tmdb.org/t/p/original' + result.logo_path} alt={result.name} width='31'/>
-                    <span>{result.name}</span>
-                </div>
+              <div className="search-res">
+                <img
+                  src={"https://image.tmdb.org/t/p/original" + result.logo_path}
+                  alt={result.name}
+                  width="31"
+                />
+                <Link to={`/mt=${result.media_type}/id=${result.id}`}>
+                  <span>{result.name}</span>
+                </Link>
+              </div>
             );
         default:
             //this is for undefined result 
