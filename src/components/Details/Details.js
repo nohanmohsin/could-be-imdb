@@ -21,14 +21,14 @@ const Details = () => {
         case 'movie':
             
             return (
-                <main>
+                <>
                   {detailsData ? (
           
                     <MovieDetails details={detailsData} />
                   ) : (
                     <p>Loading...</p>
                   )}
-                </main>
+                </>
               );
         
         case 'tv':

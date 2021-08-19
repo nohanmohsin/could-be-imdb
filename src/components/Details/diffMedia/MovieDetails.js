@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const MovieDetails = ({details}) => {
     // const {
@@ -14,13 +14,39 @@ const MovieDetails = ({details}) => {
     //   production_companies,
     //   production_countries,
     // } = details;
-
+    const [videos, setVideos] = useState();
+    const [photos, setPhotos] = useState();
+    const [cast, setCast] = useState();
+    useEffect(() => {
+      fetch(
+        `https://api.themoviedb.org/3/movie/${details.id}/videos?api_key=c9f6a8755d74ccaf49688659b04654b7&language=en-US`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setVideos(data.results);
+          
+        });
+      fetch(
+        `https://api.themoviedb.org/3/movie/${details.id}/images?api_key=c9f6a8755d74ccaf49688659b04654b7&language=en-US`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setPhotos(data.backdrops);
+          
+        });
+      fetch(`https://api.themoviedb.org/3/movie/${details.id}/credits?api_key=c9f6a8755d74ccaf49688659b04654b7&language=en-US`)
+      .then(res => res.json())
+      .then(data => setCast(data.cast.slice(0, 11)))
+      fetch(`https://api.themoviedb.org/3/certification/movie/list?api_key=c9f6a8755d74ccaf49688659b04654b7`)
+    }, [])
     return (
-      <section id="movie-details">
+      <main id="movie-details">
         <div>
           <h1 className="title">{details.title}</h1>
           <ul className="small-details">
-            <li id="release-date">{details.release_date}</li>
+            <li id="release-date" className="">
+              {details.release_date}
+            </li>
             <li id="age-rating">{details.adult ? <>18+</> : <>PG-13</>}</li>
             <li id="runtime">{details.runtime}</li>
           </ul>
@@ -36,7 +62,10 @@ const MovieDetails = ({details}) => {
             fill="currentColor"
             role="presentation"
           >
-            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-2.6 0-5-1.3-6.4-3.3l2.8-3.4 1.3 1.5c.4.4 1 .4 1.3 0l2.9-3.2 1.3 1.4c.3.3.8.1.8-.3V8.5c0-.3-.2-.5-.5-.5h-4c-.4 0-.6.5-.3.8l1.3 1.4-2.2 2.5L9 11.3c-.4-.4-1-.4-1.3 0L4.6 15c-.4-.9-.6-1.9-.6-3 0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8z"></path>
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-2.6 0-5-1.3-6.4-3.3l2.8-3.4 1.3 1.5c.4.4 1 .4 1.3 0l2.9-3.2 1.3 1.4c.3.3.8.1.8-.3V8.5c0-.3-.2-.5-.5-.5h-4c-.4 0-.6.5-.3.8l1.3 1.4-2.2 2.5L9 11.3c-.4-.4-1-.4-1.3 0L4.6 15c-.4-.9-.6-1.9-.6-3 0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8z"
+              style={{ color: "rgb(103,173,75)" }}
+            ></path>
           </svg>
           <span>{details.popularity}</span>
         </div>
@@ -53,26 +82,101 @@ const MovieDetails = ({details}) => {
               alt=""
             />
           </div>
-
         </div>
-        <ul id='genres'>
-            {details.genres.map(genre => (<li classname="genre">{genre.name}</li>))}
+        <ul id="genres-list">
+          {details.genres.map((genre) => (
+            <li className="genre">{genre.name}</li>
+          ))}
         </ul>
-        <div className="videos"></div>
-        <div className="photos"></div>
-        <div id="cast">
-
-        </div>
-        <div id="storyline">
-
-        </div>
-        <div id="details">
-
-        </div>
-        <div id="boxoffice">
-
-        </div>
-      </section>
+        <section className="videos">
+          {videos ? (
+            videos.map((video) => (
+              <div
+                style={{
+                  backgroundImage: `url("https://img.youtube.com/vi/${video.key}/maxresdefault.jpg")`,
+                  backgroundRepeat: "no-repeat",
+                  height: "400px",
+                }}
+              ></div>
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
+        </section>
+        <section className="photos">
+          {photos ? (
+            photos.map((photo) => (
+              <div>
+                <img
+                  src={`https://image.tmdb.org/t/p/original/${photo.file_path}`}
+                  alt=""
+                />
+              </div>
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
+        </section>
+        <section id="cast">
+          {cast ? (
+            cast.map((castedPerson) => (
+              <div className="casted-person-info">
+                <img
+                  className="casted-person-pfp"
+                  src={`https://image.tmdb.org/t/p/original/${castedPerson.profile_path}`}
+                  alt=""
+                />
+                <div className="casted-person-details">
+                  <h5 className="name">{castedPerson.name}</h5>
+                  <span className="portrayed-character-name">
+                    {castedPerson.character}
+                  </span>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
+        </section>
+        <section id="storyline">
+          <p id="plot">{details.overview}</p>
+          <ul id="genres-list">
+            {details.genres.map((genre) => (
+              <li className="genre">{genre.name}</li>
+            ))}
+          </ul>
+          <span id="tagline">{details.tagline}</span>
+        </section>
+        <section id="more-info">
+          <ul>
+            <li id="release-date">
+              <span className="more-info-name">Release Date</span>{" "}
+              <span className="more-info-value">{details.release_date}</span>
+            </li>
+            <li id="origin-country">
+              <span className="more-info-name">Country of origin</span>{" "}
+              <span className="more-info-value">{details.origin_country}</span>
+            </li>
+            <li id="official-site">
+              <span className="more-info-name">Official Site</span>{" "}
+              <span className="more-info-value">{details.homepage}</span>
+            </li>
+            <li id="lang">
+              <span className="more-info-name">Language</span>{" "}
+              <span className="more-info-value">
+                {details.original_language}
+              </span>
+            </li>
+            <li id="prod-company">
+              <span className="more-info-name">Production Company</span>{" "}
+              <span className="more-info-value">
+                {details.production_companies[0]}
+              </span>
+            </li>
+          </ul>
+        </section>
+        <section id="box-office"></section>
+      </main>
     );
 };
 
