@@ -28,7 +28,7 @@ const TVDetails = ({details}) => {
       fetch(`https://api.themoviedb.org/3/certification/tv/list?api_key=c9f6a8755d74ccaf49688659b04654b7`)
     }, [])
     return (
-      <main id="show-details">
+      <main id="tv-details">
         <div>
           <h1 className="title">{details.title}</h1>
           <ul className="small-details">
@@ -137,15 +137,7 @@ const TVDetails = ({details}) => {
           <span id="tagline">{details.tagline}</span>
 
         </section>
-        <section id="more-info">
-            <ul>
-                <li id='release-date'><span className="more-info-name">Release Date</span> <span className="more-info-value">{details.first_air_date}</span></li>
-                <li id='origin-country'><span className="more-info-name">Country of origin</span> <span className="more-info-value">{details.origin_country}</span></li>
-                <li id='official-site'><span className="more-info-name">Official Site</span> <span className="more-info-value">{details.homepage}</span></li>
-                <li id='lang'><span className="more-info-name">Language</span> <span className="more-info-value">{details.original_language}</span></li>
-                <li id='prod-company'><span className="more-info-name">Production Company</span> <span className="more-info-value">{details.production_companies[0]}</span></li>
-            </ul>
-        </section>
+        
         <section id="box-office"></section>
       </main>
     )

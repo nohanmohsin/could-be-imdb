@@ -23,7 +23,7 @@ const Header = () => {
             <option value="tv">TV Episodes</option>
             <option value="person">Celebs</option>
             <option value="company">Companies</option>
-            <option value="keywords">keywords</option>
+            
           </select>
         </div>
         <input

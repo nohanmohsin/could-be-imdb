@@ -35,6 +35,7 @@ a{
   width: min-content;
   height: 24px;
 }
+
 #search-form{
   display: flex;
   width: 782px;
@@ -174,4 +175,72 @@ a{
 }
 .search-res img{
   width: 31px;
+}
+
+
+
+#movie-details, #show-details{
+  background-color: white;
+}
+
+section.hero-section{
+  background-color: #1F1F1F;
+  padding: 0.5rem 1.5rem;
+  
+}
+
+h1.title{
+  color: white;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 3.125rem;
+  margin-bottom: 0.625rem;
+}
+
+ul.small-details{
+  display: flex;
+  gap: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  font-weight: 400;
+  
+}
+ul.small-details > li:first-child {
+  list-style-type: none;
+  
+}
+
+.poster-and-backdrop{
+  display: flex;
+  gap: 3px;
+  width: 100%;
+
+}
+.poster{
+  height: 415px;
+  width: 280px;
+}
+
+.backdrop{
+  width: 735px;
+  height: 415px;
+}
+
+.poster img, .backdrop img{
+  width: 100%;
+}
+
+ul#genres-list li{
+  min-width: 70px;
+  height: 1.75rem;
+  list-style-type: none;
+  color: white;
+  border: solid rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+  
+  padding: 10px;
+}
+
+p#storyline{
+  color: white;
 }

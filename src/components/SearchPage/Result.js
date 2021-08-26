@@ -66,9 +66,8 @@ const Result = ({result, filter}) => {
                   alt={result.name}
                   width="31"
                 />
-                <Link to={`/mt=${result.media_type}/id=${result.id}`}>
-                  <span>{result.name}</span>
-                </Link>
+
+                <span>{result.name}</span>
               </div>
             );
         default:
