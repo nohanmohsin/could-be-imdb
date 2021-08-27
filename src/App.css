@@ -228,19 +228,56 @@ ul.small-details > li:first-child {
 
 .poster img, .backdrop img{
   width: 100%;
+  height: 100%;
 }
-
+ul#genres-list{
+  display: flex;
+  margin-top: 0.75rem;
+}
 ul#genres-list li{
   min-width: 70px;
   height: 1.75rem;
+  display: flex;
+  align-items: center;
   list-style-type: none;
   color: white;
   border: solid rgba(255, 255, 255, 0.7);
   border-radius: 50px;
-  
-  padding: 10px;
+  box-sizing: border-box;
 }
-
+li.genre span{
+  margin: 10px;
+}
 p#storyline{
   color: white;
+  margin: 0.75rem 0;
+  width: 70%;
+  font-weight: 400;
+
 }
+
+.section-headline{
+  display: flex;
+  
+  margin: 20px;
+}
+.section-headline .arrow{
+  align-self: center;
+  margin-left: 0.75rem;
+}
+.section-headline:hover .arrow{
+  
+  color: #F5C518;
+}
+.section-headline h2{
+  font-size: 2rem;
+  margin-left: 0.75rem;
+  font-weight: bold;
+}
+.section-headline .presentation{
+  width: 4px;
+  border-radius: 50px;
+  background-color: #F5C518;
+
+}
+
