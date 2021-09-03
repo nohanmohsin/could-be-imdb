@@ -76,7 +76,7 @@ const MovieDetails = ({details}) => {
           <p id="storyline">{details.overview}</p>
         </section>
 
-        <div className="other-details-container">
+        <div className="other-details-container" style={{ margin: "20px" }}>
           <section className="videos">
             <div className="section-headline">
               <div className="presentation"></div>
@@ -97,11 +97,14 @@ const MovieDetails = ({details}) => {
             {videos ? (
               videos.map((video) => (
                 <div
-                  style={{
-                    backgroundImage: `url("https://img.youtube.com/vi/${video.key}/maxresdefault.jpg")`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "100%",
-                  }}
+                  style={
+                    //it doesnt show cos there is no content in the div.
+                    {
+                      backgroundImage: `url("https://img.youtube.com/vi/${video.key}/maxresdefault.jpg")`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "100%",
+                    }
+                  }
                 ></div>
               ))
             ) : (
@@ -137,34 +140,37 @@ const MovieDetails = ({details}) => {
               <p>Loading...</p>
             )}
           </section>
+          <div className="section-headline">
+            <div className="presentation"></div>
+            <h2>Top Cast</h2>
+            <svg
+              width="24"
+              height="24"
+              xmlns="http://www.w3.org/2000/svg"
+              className="arrow"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              role="presentation"
+            >
+              <path d="M5.622.631A2.153 2.153 0 0 0 5 2.147c0 .568.224 1.113.622 1.515l8.249 8.34-8.25 8.34a2.16 2.16 0 0 0-.548 2.07c.196.74.768 1.317 1.499 1.515a2.104 2.104 0 0 0 2.048-.555l9.758-9.866a2.153 2.153 0 0 0 0-3.03L8.62.61C7.812-.207 6.45-.207 5.622.63z"></path>
+            </svg>
+          </div>
           <section id="cast">
-            <div className="section-headline">
-              <div className="presentation"></div>
-              <h2>Top Cast</h2>
-              <svg
-                width="24"
-                height="24"
-                xmlns="http://www.w3.org/2000/svg"
-                className="arrow"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                role="presentation"
-              >
-                <path d="M5.622.631A2.153 2.153 0 0 0 5 2.147c0 .568.224 1.113.622 1.515l8.249 8.34-8.25 8.34a2.16 2.16 0 0 0-.548 2.07c.196.74.768 1.317 1.499 1.515a2.104 2.104 0 0 0 2.048-.555l9.758-9.866a2.153 2.153 0 0 0 0-3.03L8.62.61C7.812-.207 6.45-.207 5.622.63z"></path>
-              </svg>
-            </div>
             {cast ? (
               cast.map((castedPerson) => (
                 <div className="casted-person-info">
-                  <img
-                    className="casted-person-pfp"
-                    src={`https://image.tmdb.org/t/p/original/${castedPerson.profile_path}`}
-                    alt=""
-                  />
+                  <div>
+                    <img
+                      className="casted-person-pfp"
+                      src={`https://image.tmdb.org/t/p/original/${castedPerson.profile_path}`}
+                      alt=""
+                    />
+                  </div>
+
                   <div className="casted-person-details">
                     <h5 className="name">{castedPerson.name}</h5>
                     <span className="portrayed-character-name">
-                      {castedPerson.character}
+                      as {castedPerson.character}
                     </span>
                   </div>
                 </div>
@@ -173,8 +179,15 @@ const MovieDetails = ({details}) => {
               <p>Loading...</p>
             )}
           </section>
-
-          <section id="box-office"></section>
+          <div className="section-headline">
+            <div className="presentation"></div>
+            <h2>Box Office</h2>
+          </div>
+          <section id="box-office">
+            <span>Budget: {details.budget}</span>
+            <span>Revenue: {details.revenue}</span>
+            
+          </section>
         </div>
       </main>
     );

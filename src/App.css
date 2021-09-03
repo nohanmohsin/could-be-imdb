@@ -259,7 +259,7 @@ p#storyline{
 .section-headline{
   display: flex;
   
-  margin: 20px;
+  margin-bottom: 20px;
 }
 .section-headline .arrow{
   align-self: center;
@@ -281,3 +281,44 @@ p#storyline{
 
 }
 
+section#cast{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.casted-person-info{
+  display: flex;
+  width: 25rem;
+  align-items: center;
+  margin: 1.25rem 0;
+  
+}
+
+img.casted-person-pfp{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-position: 0px 0px;
+  object-fit: cover;
+}
+
+.casted-person-details{
+  margin-left: 10px;
+}
+.casted-person-details h5{
+  font-size: 1rem;
+  font-weight: 600;
+}
+.casted-person-details span{
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(0,0,0,0.54);
+}
+
+section#box-office span{
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}

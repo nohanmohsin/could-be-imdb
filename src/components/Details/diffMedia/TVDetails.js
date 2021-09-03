@@ -73,7 +73,7 @@ const TVDetails = ({details}) => {
         </div>
         <ul id="genres-list">
           {details.genres.map((genre) => (
-            <li className="genre">{genre.name}</li>
+            <div className="genre">{genre.name}</div>
           ))}
         </ul>
         <section className="episodes"></section>
