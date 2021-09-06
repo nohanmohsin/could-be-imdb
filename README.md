@@ -20,4 +20,8 @@ probably writing better comments and the fact that my css game is pretty bad and
 ### hardest part of this project
 
 hardest part of this project was too not watch all the cool movies and shows that I was seeing in the website XD
+### why I am not finishing
+
+I hate styling and the main functionality is done...just some refactoring needed in the search pages
+I am just gonna move on and pretend this didnt exist
 #### thanks for reading :3

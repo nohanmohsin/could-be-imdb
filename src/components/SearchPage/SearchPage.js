@@ -16,7 +16,6 @@ const SearchPage = () => {
   else if(filter === 'company'){
     displayingFilter= 'companies';
   }
-
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/search/${filter}?api_key=c9f6a8755d74ccaf49688659b04654b7&language=en-US&query=${query}&page=1&include_adult=false`
